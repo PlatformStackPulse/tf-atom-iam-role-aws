@@ -1,5 +1,7 @@
 # tf-atom-iam-role-aws
 
+Terraform atom that provisions a single AWS IAM role with a trust (assume role) policy.
+
 [![CI](https://github.com/PlatformStackPulse/tf-atom-iam-role-aws/actions/workflows/ci.yml/badge.svg)](https://github.com/PlatformStackPulse/tf-atom-iam-role-aws/actions/workflows/ci.yml)
 [![Release](https://github.com/PlatformStackPulse/tf-atom-iam-role-aws/actions/workflows/auto-release.yml/badge.svg)](https://github.com/PlatformStackPulse/tf-atom-iam-role-aws/actions/workflows/auto-release.yml)
 [![Latest Release](https://img.shields.io/github/v/release/PlatformStackPulse/tf-atom-iam-role-aws)](https://github.com/PlatformStackPulse/tf-atom-iam-role-aws/releases)
@@ -140,3 +142,11 @@ module "lambda_role" {
 | <a name="output_role_name"></a> [role\_name](#output\_role\_name) | Name of the IAM role |
 | <a name="output_role_unique_id"></a> [role\_unique\_id](#output\_role\_unique\_id) | Unique ID of the IAM role |
 <!-- END_TF_DOCS -->
+
+## Tests
+
+Unit tests use the native `terraform test` framework with a mocked AWS provider (plan-only, no real AWS calls):
+
+```bash
+terraform init -backend=false && terraform test
+```
